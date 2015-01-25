@@ -299,7 +299,13 @@ td .song-number{
    position: relative;
    cursor: pointer;
  }
- 
+
+
+ .seek-bar.no-animate .fill,
+ .seek-bar.no-animate .thumb{
+  transition: none;
+ }
+
  .seek-bar .fill {
    background: white;
    width: 36%;
