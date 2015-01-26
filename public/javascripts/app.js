@@ -19,7 +19,22 @@ $(document).ready(function(){
 });
 ;
 
-angular.module('BlocJams', []).controller('Landing.controller',['$scope', function($scope){
+  blocJams = angular.module('BlocJams' , ['ui.router']);
+  blocJams.config(['$stateProvider', '$locationProvider' , function($stateProvider, $locationProvider){
+    $locationProvider.html5Mode(true);
+    $stateProvider.state('landing', {
+     url: '/',
+     controller: 'Landing.controller',
+     templateUrl: '/assets/templates/landing.html'
+   });
+  }]);
+  blocJams.controller ('Landing.controller', ['$scope', function($scope){
+  $scope.headerText = "Bloc Jams" ;
+  $scope.headerTextClicked = function(o){ //v1.0
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+
+};
   $scope.subText =  "Turn down for what !" ;
   $scope.subTextClicked = function(){
     $scope.subText += '!' ;
