@@ -17,11 +17,14 @@
  
  
   blocJams = angular.module('BlocJams', ['ui.router']);
-  blocJams.config(['$stateProvider', '$locationProvider' , function($stateProvider, $locationProvider){
+  blocJams.config(['$stateProvider', '$locationProvider' , '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider){
     
     //PUSH STATE - foo.com/foo
     //NON PUSH STATE - foo.com/#/foo
     //$locationProvider.html5Mode(true);
+
+    $urlRouterProvider.otherwise('/collection');
+
     $stateProvider.state('landing', {
        url: '/',
        controller: 'Landing.controller',
