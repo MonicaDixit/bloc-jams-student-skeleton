@@ -1,31 +1,44 @@
-$(document).ready(function(){
-  $('.hero-content h3').click(function(){
-    var subText = $(this).text();
-    $(this).text(subText + "!");
-  });
-
-  var onHoverAction = function(event){
-    console.log('Hover action trigerred.');
-    $(this).animate({'margin-top':'10px'});
-  };
-
-  var offHoverAction = function(event){
-     console.log('off-hover action triggered.');
-     $(this).animate({'margin-top':'0px'});
-  }
-
-
-  $('.selling-points .point').hover(onHoverAction, offHoverAction);
-});
-;
-
-  blocJams = angular.module('BlocJams' , ['ui.router']);
+ // Example album.
+ var albumPicasso = {
+   name: 'The Colors',
+   artist: 'Pablo Picasso',
+   label: 'Cubism',
+   year: '1881',
+   albumArtUrl: '/images/album-placeholder.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26' },
+       { name: 'Green', length: '3:14' },
+       { name: 'Red', length: '5:01' },
+       { name: 'Pink', length: '3:21'},
+       { name: 'Magenta', length: '2:15'}
+     ]
+ };
+ 
+ 
+  blocJams = angular.module('BlocJams', ['ui.router']);
   blocJams.config(['$stateProvider', '$locationProvider' , function($stateProvider, $locationProvider){
-    $locationProvider.html5Mode(true);
+    
+    //PUSH STATE - foo.com/foo
+    //NON PUSH STATE - foo.com/#/foo
+    //$locationProvider.html5Mode(true);
     $stateProvider.state('landing', {
-     url: '/',
-     controller: 'Landing.controller',
-     templateUrl: '/assets/templates/landing.html'
+       url: '/',
+       controller: 'Landing.controller',
+       templateUrl: '/templates/landing.html'
+     });
+
+    $stateProvider.state('collection', {
+     url: '/collection',
+     controller: 'Collection.controller',
+     templateUrl: '/templates/collection.html'
+   });
+
+
+    $stateProvider.state('album', {
+     url: '/album',
+     templateUrl: '/templates/album.html',
+     controller: 'Album.controller'
    });
   }]);
   blocJams.controller ('Landing.controller', ['$scope', function($scope){
@@ -34,7 +47,7 @@ $(document).ready(function(){
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
 
-};
+  };
   $scope.subText =  "Turn down for what !" ;
   $scope.subTextClicked = function(){
     $scope.subText += '!' ;
@@ -52,3 +65,43 @@ $(document).ready(function(){
      '/images/album-placeholders/album-9.jpg',
   ];
 }]);
+
+  blocJams.controller('Collection.controller', ['$scope', function($scope) {
+   $scope.albums = [];
+    for (var i = 0; i < 33; i++) {
+     $scope.albums.push(angular.copy(albumPicasso));
+   };
+   }]);
+
+   blocJams.controller('Album.controller', ['$scope', function($scope) {
+   $scope.album = angular.copy(albumPicasso);
+
+    var hoveredSong = null;
+    var playingSong = null;
+ 
+    $scope.onHoverSong = function(song) {
+     hoveredSong = song;
+   };
+ 
+   $scope.offHoverSong = function(song) {
+     hoveredSong = null;
+   };
+
+     $scope.getSongState = function(song) {
+     if (song === playingSong) {
+       return 'playing';
+     }
+     else if (song === hoveredSong) {
+       return 'hovered';
+     }
+     return 'default';
+   };
+
+   $scope.playSong = function(song) {
+      playingSong = song;
+    };
+ 
+    $scope.pauseSong = function(song) {
+      playingSong = null;
+    };
+ }]);

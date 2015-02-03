@@ -18,7 +18,7 @@
     padding-bottom: 0px;
   }
 
-  hero-content {
+  .hero-content {
     background: #2F1D57;
     padding: 100px 0;
   }
@@ -58,6 +58,15 @@ body.landing.navbar {
 .player-header-nav{
   background-color:  rgba(123, 70, 163, .9);
 }
+
+
+.navbar-nav {
+      line-height: 45px;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1.2;
+  } 
 
 .album-header-container {
     margin-top: 55px;
@@ -358,3 +367,4 @@ td .song-number{
    width: 100px;
    vertical-align: middle;
  }
+

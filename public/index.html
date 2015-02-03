@@ -4,7 +4,7 @@
     <title>Bloc Jams</title>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.1/build/cssreset/cssreset-min.css">
     <link rel = 'stylesheet' type = "text/css" href = "/css/app.css" >
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
@@ -12,15 +12,18 @@
     <script src="/javascripts/vendor.js"></script>
     <script src="/javascripts/app.js"></script>
   </head>
-  <body ng-controller = 'Landing.controller' class = "landing">
+  <body>
     <h1> Welcome to Bloc Jams! </h1>
     <nav class = "player-header-nav navbar">
       <div  class = "container">
         <div class = "navbar-header">
-          <a class = "logo navbar-left">
+            <a ui-sref='landing' class='logo navbar-left'>
             <img src = "/images/blocjams.png">
           </a> 
          </div>
+         <ul class="navbar-nav navbar-right">
+            <li style = "float:right"><a ui-sref='collection'>Library</a></li>
+         </ul>
       </div>
     </nav>   
     <div ui-view></div>
