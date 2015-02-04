@@ -10,29 +10,28 @@
         class="collection-album-image-container">
 
         <img 
-          ng-src="{{album.albumArtUrl}}"
-        />
-
-        <div 
-          class="collection-overlay-content">
+          ng-src="{{album.albumArtUrl}}"/>
 
           <div 
-            class="collection-album-image-overlay" 
-            ng-show="showOverlay">
+            class="collection-overlay-content">
 
-            <a 
-              class="collection-overlay-button" 
-              ui-sref="album">
-              <i class="fa fa-play"></i>
-            </a>
-            &nbsp;
-            <a 
-              class="collection-overlay-button">
-              <i class="fa fa-plus"></i>
-            </a>
+            <div 
+              class="collection-album-image-overlay" 
+              ng-show="showOverlay">
+
+              <a 
+                class="collection-overlay-button" 
+                ui-sref="album">
+                <i class="fa fa-play"></i>
+              </a>
+              &nbsp;
+              <a 
+                class="collection-overlay-button">
+                <i class="fa fa-plus"></i>
+              </a>
+            </div>
           </div>
-        </div>
-      </div>      
+        </div>      
       <div class="collection-album-info caption">
         <p>
           <a 
