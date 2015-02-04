@@ -56,6 +56,24 @@ html {
    background-color: rgba(123, 70, 163, .9);
  }
 
+ .player-header-nav .navbar-nav a {
+      line-height: 45px;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1.2;
+    }
+
+.player-header-nav .navbar-nav a:hover {
+  background-color: rgba(123, 70, 163, .9);
+      line-height: 45px;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1.2;
+      color: rgba(123, 70, 163, .9);
+    }
+
   body.landing .navbar {
     margin-bottom: 0;
   }
@@ -322,7 +340,7 @@ html {
  .seek-bar.no-animate .thumb{
   transition: none;
  }
- 
+
  .seek-bar .thumb {
    position: absolute;
    height: 10px;
