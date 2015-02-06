@@ -114,20 +114,40 @@
  }]);
 
   blocJams.service('SongPlayer', function() {
-   return {
-     currentSong: null,
-     currentAlbum: null,
-     playing: false,
+    var trackIndex = function(album, song) {
+     return album.songs.indexOf(song);
+   };
+    return {
+      currentSong: null,
+      currentAlbum: null,
+      playing: false,
  
-     play: function() {
-       this.playing = true;
+      play: function() {
+        this.playing = true;
      },
-     pause: function() {
-       this.playing = false;
+      pause: function() {
+        this.playing = false;
      },
-     setSong: function(album, song) {
-       this.currentAlbum = album;
-       this.currentSong = song;
+      next: function() {
+        var currentTrackIndex = trackIndex(this.currentAlbum, this.currentSong);
+        currentTrackIndex++;
+        if (currentTrackIndex >= this.currentAlbum.songs.length) {
+          currentTrackIndex = 0;
+        }
+        this.currentSong = this.currentAlbum.songs[currentTrackIndex];
+      },
+      previous: function() {
+        var currentTrackIndex = trackIndex(this.currentAlbum, this.currentSong);
+        currentTrackIndex--;
+        if (currentTrackIndex < 0) {
+          currentTrackIndex = this.currentAlbum.songs.length - 1;
+       }
+ 
+          this.currentSong = this.currentAlbum.songs[currentTrackIndex];
+     },
+      setSong: function(album, song) {
+        this.currentAlbum = album;
+        this.currentSong = song;
      }
    };
  });
