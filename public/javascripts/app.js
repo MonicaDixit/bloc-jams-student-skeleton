@@ -216,7 +216,7 @@ blocJams.directive('slider', ['$document', function($document){
           });
         });
  
-         //cleanup
+         //cleanup work
         $document.bind('mouseup.thumb', function(){
           $document.unbind('mousemove.thumb');
           $document.unbind('mouseup.thumb');
