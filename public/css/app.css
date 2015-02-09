@@ -376,10 +376,11 @@ html {
  }
  
  .player-bar .volume i {
-   width: 40px;
+   width: 20px;
    font-size: 20px;
    display: inline-block;
    vertical-align: middle;
+   text-align: left;
  }
  .player-bar .volume .slider {
    display: inline-block;
