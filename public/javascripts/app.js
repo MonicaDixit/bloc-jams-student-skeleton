@@ -186,6 +186,19 @@
         }
         this.volume = volume;
       },
+
+      //toggleMute()
+
+      setVolume: function(volume) {
+        if(currentSoundFile){
+          currentSoundFile.setVolume(volume);
+        }
+        this.volume = volume;
+      },
+
+      setMuteUnmute : function(){
+        currentSoundFile.toggleMute();
+      },
       setSong: function(album, song) {
         if (currentSoundFile) {
           currentSoundFile.stop();
