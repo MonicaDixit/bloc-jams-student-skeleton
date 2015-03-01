@@ -21,7 +21,7 @@
 
               <a 
                 class="collection-overlay-button" 
-                ng-click="playAlbum(album)">
+                ui-sref="album">
                 <i class="fa fa-play"></i>
               </a>
               &nbsp;
@@ -33,7 +33,6 @@
           </div>
         </div>      
       <div class="collection-album-info caption">
-        <slider></slider>
         <p>
           <a 
             class="album-name" 
@@ -49,5 +48,4 @@
       </div>
     </div>
   </div>
-  <ng-include src="'/templates/player_bar.html'"></ng-include>
 </div>

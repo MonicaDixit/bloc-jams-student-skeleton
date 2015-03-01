@@ -21,7 +21,7 @@
     
     //PUSH STATE - foo.com/foo
     //NON PUSH STATE - foo.com/#/foo
-    //$locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
     $urlRouterProvider.otherwise('/collection');
 
