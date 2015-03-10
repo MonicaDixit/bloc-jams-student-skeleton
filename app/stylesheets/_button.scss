@@ -8,14 +8,13 @@
    font-size: 14px;
    letter-spacing: 2px;
    outline: none;
-  } 
  
-   .default-button .active {
+   &:active {
      background-color: #9B1D64;
      outline: none;
    }
  
-   .default-button .disabled {
+   &:disabled {
      background-color: #B3B3B3;
      cursor: not-allowed;
    }
