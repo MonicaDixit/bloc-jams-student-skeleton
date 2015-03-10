@@ -37,15 +37,11 @@
      templateUrl: '/templates/collection.html'
    });
 
+
     $stateProvider.state('album', {
      url: '/album',
      templateUrl: '/templates/album.html',
      controller: 'Album.controller'
-   });
-
-    $stateProvider.state('profile', {
-     url: '/profile',
-     templateUrl: '/templates/profile.html'
    });
   }]);
   blocJams.controller ('Landing.controller', ['$scope', function($scope){

@@ -2,17 +2,20 @@
 <html ng-app = "BlocJams">
   <head>
     <title>Bloc Jams</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.1/build/cssreset/cssreset-min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel = "stylesheet" href = "/css/animate.css" >
-    <link rel = 'stylesheet' type = "text/css" href = "/css/app.css" >
+    <link rel = 'stylesheet' type = "text/css" href = "/stylesheets/app.css" >
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/buzz/1.1.0/buzz.min.js"></script>
     <script src="/javascripts/vendor.js"></script>
+    <script src = '/socket.io/socket.io.js'></script>
     <script src="/javascripts/app.js"></script>
   </head>
   <body>
@@ -24,8 +27,20 @@
           </a> 
          </div>
          <ul class="navbar-nav navbar-right">
-            <li style = "float:right"><a ui-sref='collection'>Library</a></li>
+            <li class ='hidden-sm hidden-xs'style = "float:right"><a ui-sref='collection'>Library</a></li>
          </ul>
+         <div class = "dropdown visible-sm visible-xs hidden-md 
+           hidden-lg">
+           <button class = "btn btn-default dropdown-toggle" type="button" 
+             id="menu1" 
+             data-toggle="dropdown">Menu
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" ui-sref='collection'>Library</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">PlayLists</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" ui-sref="profile">Profile</a></li>
+             </ul> 
+         </div>
       </div>
     </nav>   
     <div ui-view></div>

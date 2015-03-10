@@ -140,12 +140,12 @@ td.song-number {
   padding-left: 5px; }
 
 .player-bar {
+  color: blue;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   height: 150px;
-  background: rgba(255, 255, 255, 0.3);
   z-index: 100; }
   .player-bar a, .player-bar a:hover {
     color: white;
@@ -215,18 +215,18 @@ td.song-number {
     right: 0;
     top: 10px; }
 
-.slide {
+.slider {
   height: 5px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
   position: relative;
   cursor: pointer; }
-  .slide .fill {
+  .slider .fill {
     background: white;
     width: 36%;
     height: 5px;
     border-radius: 2px; }
-  .slide .thumb {
+  .slider .thumb {
     position: absolute;
     height: 10px;
     width: 10px;
@@ -238,13 +238,59 @@ td.song-number {
     border-radius: 50%;
     cursor: pointer;
     transition: all 100ms ease-in-out; }
-  .slide:active .fill, .slide:active .thumb {
+  .slider:active .fill, .slider:active .thumb {
     transition: none; }
-  .slide:hover .thumb, .slide:active .thumb {
+  .slider:hover .thumb, .slider:active .thumb {
     width: 20px;
     height: 20px;
     margin-top: -10px;
     margin-left: -10px; }
+
+@media screen and (max-width: 768px) {
+  /* Landing Page and Global Styles */
+  /* Collection View */
+  body.landing {
+    color: yellow; }
+  .player-header-nav.navbar .navbar-nav li {
+    text-align: center;
+    display: none; }
+  .player-header-nav.navbar .hero-content h1, .player-header-nav.navbar .hero-content h3 {
+    text-align: center; }
+  .player-header-nav.navbar .selling-points {
+    padding: 0; }
+    .player-header-nav.navbar .selling-points .point {
+      padding: 3em 0.75em; }
+      .player-header-nav.navbar .selling-points .point h5 {
+        height: 2.25em; }
+      .player-header-nav.navbar .selling-points .point p {
+        text-align: center;
+        font-size: 1.25em; }
+  .player-header-nav.navbar .landing-album-list {
+    /* Example class added to style the album covers for mobile */ }
+    .player-header-nav.navbar .landing-album-list .album-cover {
+      position: relative;
+      left: calc(50% - 200px); }
+  .collection-album-container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 280px;
+    /* Width of the album image. */ }
+  .player-header-nav.navbar .dropdown {
+    text-align: center;
+    display: block; }
+  .player-bar-control-group {
+    display: table-row;
+    vertical-align: middle; }
+  .player-bar .right-controls {
+    width: 25%;
+    text-align: center; }
+  .player-bar .left-controls {
+    width: 25%;
+    display: table-row;
+    text-align: center; } }
 
 html {
   height: 100%; }
@@ -274,6 +320,53 @@ body.landing .navbar {
     letter-spacing: 1.2; }
     .player-header-nav .navbar-nav a:hover {
       color: rgba(123, 70, 163, 0.9); }
+  .player-header-nav .btn-default {
+    color: rgba(123, 70, 163, 0.9); }
+
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000; }
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  transform: rotateY(180deg); }
+
+.flip-container, .front, .back {
+  width: 320px;
+  height: 480px; }
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.9s;
+  transform-style: preserve-3d;
+  position: relative; }
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg); }
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg); }
+
+.back h5 {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  padding-left: 20px;
+  text-align: center; }
+
+.back p {
+  text-align: center; }
 
 
 /*# sourceMappingURL=app.css.map*/

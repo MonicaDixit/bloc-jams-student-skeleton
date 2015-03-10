@@ -9,6 +9,7 @@
     "angular-mocks": "1.2.15",
     "jquery": "~2.1.1",
     "angular-ui-router": "~0.2.10",
+    "angular-ui-bootstrap": "~0.1.0",
     "buzz": "~1.1.0"
   }
 }
